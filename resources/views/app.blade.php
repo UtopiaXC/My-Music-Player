@@ -5,7 +5,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap&subset=latin-ext"
         rel="stylesheet"/>
-    <title></title>
+    <title>{{env("APP_NAME")}}</title>
 </head>
 <body>
 <div id="app">
@@ -84,5 +84,8 @@
     </svg>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
+<div id="footer" class="site-info">
+    {!!env("FOOTER_CONTENT")!!}
+</div>
 </body>
 </html>

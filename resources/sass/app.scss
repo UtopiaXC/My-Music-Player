@@ -21,8 +21,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     background-size: cover;
+    margin-top:10%
 }
 @media screen and (max-width: 700px), (max-height: 500px) {
     .wrapper {
@@ -377,5 +377,25 @@ body {
     pointer-events: none;
     opacity: 0;
 }
+
+.site-info {
+    text-align: center;
+    font-size: 13px;
+    color: #9c9c9c;
+    font-family: miranafont,"Hiragino Sans GB",STXihei,"Microsoft YaHei",SimSun,sans-serif;
+}
+
+.site-info a {
+    color: #9c9c9c;
+}
+
+.site-info a:hover {
+    color: #A0DAD0;
+}
+
+.footertext p {
+    margin-bottom: 10px;
+}
+
 
 /*# sourceMappingURL=main.css.map */

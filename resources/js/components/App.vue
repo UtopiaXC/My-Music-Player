@@ -166,11 +166,11 @@ export default {
     created() {
         try {
             let vm = this;
-            axios.get("http://localhost/api/getMusicList").then(async response => {
+            axios.get("/api/getMusicList").then(async response => {
                 if (response.data.code === 200) {
                     vm.tracks = response.data.data
                     for (let i = 0; i < this.tracks.length; i++) {
-                        await axios.get("http://localhost/api/getMusicInfo/" + this.tracks[i].id).then(response => {
+                        await axios.get("/api/getMusicInfo/" + this.tracks[i].id).then(response => {
                             if (response.data.code === 200) {
                                 this.tracks[i].cover = response.data.data.cover
                                 this.tracks[i].artist = response.data.data.artist
