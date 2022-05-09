@@ -48,13 +48,21 @@ composer -V
 ```
 如果显示出您的Composer版本则意味着您有着Composer，如果显示命令不存在，您需要先安装Composer  
 ```bash
+# 方法一
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+
+# 方法二：如果您的设备上存在多个PHP环境，不同版本的Composer可能发生冲突，您可使用本方法
+php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
 然后，使用Composer安装php依赖包  
 ```bash
+# 通过方法一安装的Composer
 composer install
+
+# 通过方法二安装的Composer
+php composer.phar install
 ```
 
 如果，您的服务器在国内导致下载一直被卡住，请替换源为国内源，以下命令任选一个运行即可  
