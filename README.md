@@ -25,4 +25,54 @@ This is a localized deployment of Laravel-based web music player calling NetEase
 [UtopiaXC's Music Player](https://music.utopiaxc.cn/) 
 
 ## 私有化部署
+### 下载  
+请直接使用Release下载。如果希望体验开发中的内容可以直接使用git clone。  
+首先，创建Nginx或Apache网站根目录，然后进入。进入后执行下方指令中的一条即可，两者唯一的区别是下载源不同。  
+```bash
+cd /xxx/xxx # 将/xxx/xxx替换为你自己的网站根目录
 
+# 如果你的服务器不在中国大陆，请使用本条
+wget https://github.com/UtopiaXC/My-Music-Player/archive/refs/tags/1.0.0.tar.gz && tar -zxvf 1.0.0.tar.gz && mv My-Music-Player-1.0.0/* . && rm -rf 1.0.0.tar.gz My-Music-Player-1.0.0/
+
+# 如果你的服务器在中国大陆，请使用本条
+wget https://git.utopiaxc.cn/UtopiaXC/my-music-player/-/archive/1.0.0/my-music-player-1.0.0.tar.gz && tar -zxvf my-music-player-1.0.0.tar.gz && mv my-music-player-1.0.0/* . && rm -rf my-music-player-1.0.0.tar.gz my-music-player-1.0.0/
+```
+
+### Nginx设置
+请将Nginx的运行目录设置为public  
+
+### Composer依赖
+你需要自行安装Composer依赖，首先确认您是否已经安装Composer  
+```bash
+composer -V
+```
+如果显示出您的Composer版本则意味着您有着Composer，如果显示命令不存在，您需要先安装Composer  
+```bash
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+然后，使用Composer安装php依赖包  
+```bash
+composer install
+```
+
+### 配置文件
+您需要先生成一份自己的配置文件  
+```bash
+cp .env.example .env
+```
+
+### APP KEY
+你需要生成一个APP KEY，你可以使用php脚手架进行生成，当然，你也可以通过网页进行生成。  
+如果您希望使用脚手架生成，你需要保证php已经作为系统变量可以执行，然后执行以下命令  
+```bash
+php artisan key:generate
+```
+或者，对.env配置文件进行修改，暂时将APP_DEBUG更改为true，保存后访问您的域名，然后按照提示点击生成APP KEY，生成后将.env文件的APP_DEBUG改回false保证安全。  
+
+### 配置文件
+最后，你需要对配置文件进行修改。具体修改内容请参考注释。
+```bash
+vim .env
+```
