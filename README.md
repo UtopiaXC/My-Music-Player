@@ -32,10 +32,10 @@ This is a localized deployment of Laravel-based web music player calling NetEase
 cd /xxx/xxx # 将/xxx/xxx替换为你自己的网站根目录
 
 # 如果你的服务器不在中国大陆，请使用本条
-wget https://github.com/UtopiaXC/My-Music-Player/archive/refs/tags/1.0.0.tar.gz && tar -zxvf 1.0.0.tar.gz && cp -r My-Music-Player-1.0.0/. ./ && rm -rf 1.0.0.tar.gz My-Music-Player-1.0.0/ && chmod 755 ./
+wget https://github.com/UtopiaXC/My-Music-Player/archive/refs/tags/1.0.0.tar.gz && tar -zxvf 1.0.0.tar.gz && cp -r My-Music-Player-1.0.0/. ./ && rm -rf 1.0.0.tar.gz My-Music-Player-1.0.0/ && chmod -R 755 ./
 
 # 如果你的服务器在中国大陆，请使用本条
-wget https://git.utopiaxc.cn/UtopiaXC/my-music-player/-/archive/1.0.0/my-music-player-1.0.0.tar.gz && tar -zxvf my-music-player-1.0.0.tar.gz && cp -r my-music-player-1.0.0/.  ./ && rm -rf my-music-player-1.0.0.tar.gz my-music-player-1.0.0/ && chmod 755 ./
+wget https://git.utopiaxc.cn/UtopiaXC/my-music-player/-/archive/1.0.0/my-music-player-1.0.0.tar.gz && tar -zxvf my-music-player-1.0.0.tar.gz && cp -r my-music-player-1.0.0/.  ./ && rm -rf my-music-player-1.0.0.tar.gz my-music-player-1.0.0/ && chmod -R 755 ./
 ```
 
 ### Nginx设置
