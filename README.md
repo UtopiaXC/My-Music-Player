@@ -1,14 +1,15 @@
 # My Music Player  
-<center><img src="public/images/music.png" alt="logo"/></center>
-<center>
+<p align="center"><img src="public/images/music.png" alt="logo"/></p>
+<br>
+<p align="center">
 <a target="_blank" href="https://github.com/UtopiaXC/My-Music-Player/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license-mit"/></a>
 <a target="_blank" href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-8.83.11-%23ff5252" alt="Laravel"/></a>
 <a target="_blank" href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-2.x-%2343a047" alt="Vue"/></a>
 <a target="_blank" href="https://www.utopiaxc.cn/"><img src="https://img.shields.io/badge/Author-UtopiaXC-%23ae52d4" alt="Author"/></a>
 <a target="_blank" href="https://github.com/UtopiaXC/My-Music-Player"><img src="https://img.shields.io/badge/GitHub-My%20Music%20Player-%236d6d6d" alt="GitHub"/></a>
 <a target="_blank" href="https://git.utopiaxc.cn/UtopiaXC/my-music-player"><img src="https://img.shields.io/badge/GitLab-My%20Music%20Player-%23ff8a65" alt="GitLab"/></a>
-</center>
-
+</p>
+<br>
 这是一个本地化部署的基于Laravel的调用网易云API的网页音乐播放器。  
 This is a localized deployment of Laravel-based web music player calling NetEase Cloud Music API  
 
