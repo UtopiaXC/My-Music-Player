@@ -57,6 +57,19 @@ sudo mv composer.phar /usr/local/bin/composer
 composer install
 ```
 
+如果，您的服务器在国内导致下载一直被卡住，请替换源为国内源，以下命令任选一个运行即可  
+```bash
+# 全局换为阿里云源
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+# 全局换为腾讯云源
+composer config -g repos.packagist composer https://mirrors.cloud.tencent.com/composer/
+# 全局换为中国全量镜像源
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+# 仅本工程换为阿里云源
+composer config repo.packagist composer https://mirrors.aliyun.com/composer/
+```
+
 ### 配置文件
 您需要先生成一份自己的配置文件  
 ```bash
