@@ -89,3 +89,12 @@ php artisan key:generate
 ```bash
 vim .env
 ```
+
+### 伪静态
+如果以上步骤均完成后，打开只显示灰色的界面，播放器无法加载，查看控制台接口显示404，则需要为Nginx站点配置文件添加伪静态规则
+```conf
+location /
+{
+	 try_files $uri $uri/ /index.php$is_args$query_string;
+}
+```
