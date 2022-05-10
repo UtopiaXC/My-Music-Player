@@ -21,7 +21,7 @@ This is a localized deployment of Laravel-based web music player calling NetEase
 ## 简介
 这是一个用于博客网站本地化部署的音乐播放器，采用Laravel调用网易云音乐接口进行歌单播放。  
 使用中存在任何疑问请前往[Issues](https://github.com/UtopiaXC/My-Music-Player/issues)
-后续开发计划请见[Project2.0](https://github.com/UtopiaXC/My-Music-Player/projects/1)
+后续开发计划请见[Project](https://github.com/UtopiaXC/My-Music-Player/projects)
 
 ## 演示地址
 [UtopiaXC's Music Player](https://music.utopiaxc.cn/) 
