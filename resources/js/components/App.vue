@@ -169,43 +169,41 @@ export default {
             axios.get("/api/getMusicList").then(async response => {
                 if (response.data.code === 200) {
                     vm.tracks = response.data.data
-                    vm.audio = new Audio();
-                    vm.audio.volume=0.2
-                    vm.currentTrack = vm.tracks[0];
-                    vm.audio.src = vm.currentTrack.source;
 
-                    vm.audio.onerror = function () {
-                        vm.tracks.splice(vm.tracks.indexOf(vm.currentTrack), 1);
-                        vm.currentTrack = vm.tracks[vm.currentTrackIndex]
-                        vm.resetPlayer()
-                    }
-
-                    vm.audio.ontimeupdate = function () {
-                        vm.generateTime();
-                    };
-                    vm.audio.onloadedmetadata = function () {
-                        vm.generateTime();
-                    };
-                    vm.audio.onended = function () {
-                        vm.nextTrack();
-                        vm.isTimerPlaying = true;
-                    };
-                    for (let index = 0; index < vm.tracks.length; index++) {
-                        const element = vm.tracks[index];
-                        let link = document.createElement('link');
-                        link.rel = "prefetch";
-                        link.href = element.cover;
-                        link.as = "image"
-                        document.head.appendChild(link)
-                    }
                     for (let i = 0; i < this.tracks.length; i++) {
-                        if (i === 0) {
-                            vm.currentTrack = vm.tracks[0];
-                        }
                         await axios.get("/api/getMusicInfo/" + this.tracks[i].id).then(response => {
                             if (response.data.code === 200) {
                                 this.tracks[i].cover = response.data.data.cover
                                 this.tracks[i].artist = response.data.data.artist
+                                if (i === 0) {
+                                    vm.audio = new Audio();
+                                    vm.audio.volume=0.2
+                                    vm.currentTrack = vm.tracks[0];
+                                    vm.audio.src = vm.currentTrack.source;
+                                    vm.audio.ontimeupdate = function () {
+                                        vm.generateTime();
+                                    };
+                                    vm.audio.onloadedmetadata = function () {
+                                        vm.generateTime();
+                                    };
+                                    vm.audio.onended = function () {
+                                        vm.nextTrack();
+                                        vm.isTimerPlaying = true;
+                                    };
+                                    for (let index = 0; index < vm.tracks.length; index++) {
+                                        const element = vm.tracks[index];
+                                        let link = document.createElement('link');
+                                        link.rel = "prefetch";
+                                        link.href = element.cover;
+                                        link.as = "image"
+                                        document.head.appendChild(link)
+                                    }
+                                    vm.audio.onerror = function () {
+                                        vm.tracks.splice(vm.tracks.indexOf(vm.currentTrack), 1);
+                                        vm.currentTrack = vm.tracks[vm.currentTrackIndex]
+                                        vm.resetPlayer()
+                                    }
+                                }
                             } else {
                                 this.tracks.splice(i, 1);
                                 i--;
