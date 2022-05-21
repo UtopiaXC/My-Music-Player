@@ -41,8 +41,8 @@
             <div class="progress" ref="progress">
                 <div class="progress__top">
                     <div class="album-info" v-if="currentTrack">
-                        <div class="album-info__name">{{ currentTrack.artist }}</div>
-                        <div class="album-info__track">{{ currentTrack.name }}</div>
+                        <div class="album-info__name">{{ currentTrack.name }}</div>
+                        <div class="album-info__track">{{ currentTrack.artist }}</div>
                     </div>
                     <div class="progress__duration">{{ duration }}</div>
                 </div>
@@ -170,12 +170,13 @@ export default {
                 if (response.data.code === 200) {
                     vm.tracks = response.data.data
                     vm.audio = new Audio();
+                    vm.audio.volume=0.2
                     vm.currentTrack = vm.tracks[0];
                     vm.audio.src = vm.currentTrack.source;
 
                     vm.audio.onerror = function () {
                         vm.tracks.splice(vm.tracks.indexOf(vm.currentTrack), 1);
-                        vm.currentTrack=vm.tracks[vm.currentTrackIndex]
+                        vm.currentTrack = vm.tracks[vm.currentTrackIndex]
                         vm.resetPlayer()
                     }
 
@@ -198,6 +199,9 @@ export default {
                         document.head.appendChild(link)
                     }
                     for (let i = 0; i < this.tracks.length; i++) {
+                        if (i === 0) {
+                            vm.currentTrack = vm.tracks[0];
+                        }
                         await axios.get("/api/getMusicInfo/" + this.tracks[i].id).then(response => {
                             if (response.data.code === 200) {
                                 this.tracks[i].cover = response.data.data.cover
